@@ -23,7 +23,7 @@ $url = substr($url, strpos($url, basename(__DIR__)));
 
 $urlPieces = explode('/', urldecode($url));
 
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
 header('Access-Control-Allow-Origin: *');
 header('Accept-version: v1');
 
@@ -67,7 +67,7 @@ switch ($urlPieces[POS_ENTITY]) {
                 echo json_encode($fakePerson->getFakePerson());
                 break;
             case $numPersons > 1 && $numPersons <= 100:
-                echo json_encode($fakePerson->getFakePersons($numPersons));
+                echo json_encode($fakePerson->getFakePersons($numPersons), JSON_INVALID_UTF8_SUBSTITUTE);
                 break;
             default:
                 reportError(ERROR_PARAMS);

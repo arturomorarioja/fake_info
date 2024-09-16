@@ -141,8 +141,12 @@ class FakeInfo {
         } elseif ($doorType < 19) {
             $this->address['door'] = mt_rand(1, 50);
         } else {
-            $lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyzæøå';
-            $this->address['door'] = $lowerCaseLetters[mt_rand(0, strlen($lowerCaseLetters) - 1)];
+            // The characters need to be laid out in an array instead of a string.
+            // Otherwise, the Danish vowels are not correctly interpreted as UTF-8
+            $lowerCaseLetters = [
+                'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 
+                'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ø', 'æ', 'å'];
+            $this->address['door'] = $lowerCaseLetters[mt_rand(0, count($lowerCaseLetters) - 1)];
             if ($doorType === 20) {
                 $this->address['door'] .= '-';
             }
