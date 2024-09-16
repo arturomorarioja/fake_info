@@ -21,6 +21,8 @@ class FakeInfo {
         '584', '586', '587', '589', '597', '598', '627', '629', '641', '649', '658', '662', '663', '664', '665', 
         '667', '692', '693', '694', '697', '771', '772', '782', '783', '785', '786', '788', '789', '826', '827', '829'
     ];
+    private const MIN_BULK_PERSONS = 2;
+    private const MAX_BULK_PERSONS = 100;
 
     private string $cpr;    
     private string $firstName;
@@ -310,12 +312,12 @@ class FakeInfo {
     /** 
      * Returns information about several fake persons
      * 
-     * @param $amount The number of fake persons to generate, between 2 and 200 inclusive
+     * @param $amount The number of fake persons to generate, between 2 and 100 inclusive
      * @return array The fake information
      */
-    public function getFakePersons(int $amount = 2): array {
-        if ($amount < 2) { $amount = 2; }
-        if ($amount > 200) { $amount = 200; }
+    public function getFakePersons(int $amount = FakeInfo::MIN_BULK_PERSONS): array {
+        if ($amount < FakeInfo::MIN_BULK_PERSONS) { $amount = FakeInfo::MIN_BULK_PERSONS; }
+        if ($amount > FakeInfo::MAX_BULK_PERSONS) { $amount = FakeInfo::MAX_BULK_PERSONS; }
 
         for ($index = 0; $index < $amount; $index++) {
             $fakeInfo = new FakeInfo;
