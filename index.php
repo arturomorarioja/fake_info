@@ -53,7 +53,7 @@ switch ($urlPieces[POS_ENTITY]) {
         echo json_encode($fakePerson->getAddress());
         break;
     case 'phone':
-        echo json_encode(['phone' => $fakePerson->getPhoneNumber()]);
+        echo json_encode(['phoneNumber' => $fakePerson->getPhoneNumber()]);
         break;
     case 'person':
         $numPersons = $_GET['n'] ?? 1;
