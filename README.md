@@ -1,7 +1,7 @@
 # Fake Data Generator
 
 ## Purpose
-Sample PHP object-oriented API that generates fake data of nonexistent Danish persons.
+Sample PHP object-oriented REST API that generates fake data of nonexistent Danish persons.
 
 ## Dependencies
 
