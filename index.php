@@ -24,6 +24,7 @@ $url = substr($url, strpos($url, basename(__DIR__)));
 $urlPieces = explode('/', urldecode($url));
 
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
 header('Accept-version: v1');
 
 $fakePerson = new FakeInfo;
