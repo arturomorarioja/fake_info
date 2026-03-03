@@ -8,10 +8,9 @@ Sample PHP object-oriented REST API that generates fake data of nonexistent Dani
 - The fake persons' first name, last name, and gender are extracted from the file `data/person-names.json`.
 - The fake persons' postal code and town are extracted from the MariaDB/MySQL database `addresses`.
 
-## Database Installation
-
-1. The script `db/addresses.sql` must be run. It will create the MariaDB/MySQL database `addresses`.
-2. The file `info/info.php` contains default database values. It may be necessary to update it with the database configuration in use.
+## Usage
+- Start: `docker compose up --build -d`
+- Stop: `docker compose down -v`
 
 ## API Endpoints
 |Method|Endpoint|
@@ -24,7 +23,7 @@ Sample PHP object-oriented REST API that generates fake data of nonexistent Dani
 |GET|/address|
 |GET|/phone|
 |GET|/person|
-|GET|/person&n=<number_of_fake_persons>|
+|GET|/person?n=<number_of_fake_persons>|
 
 ## API Sample Output
 `GET /cpr`
